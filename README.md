@@ -1,14 +1,18 @@
 # 2D RPG for Toge Productions Hiring Process
 
 # ToDo List
-- Building blocks
-  + [x] movement
-  + [x] interact
-  + [ ] dialogue and narrative system
-  + [ ] turn-based fighting with mini game after choosing the fight action
-  + [ ] status / resources components with Scriptable object as data container
-  + [ ] cutscene system
++ Building blocks
+  - [x] movement
+  - [x] interact
+  - [x] dialogue system
+  - [ ] turn-based fighting with mini game after choosing the fight action
+  - [ ] agility to determine who's turn
+  - [ ] status / resources components with Scriptable object as data container
+  - [ ] cutscene system
 
++ Bugs
+ - [ ] interact input on Interact class and next dialogue input on DialougeManager class are conflict. need to enable it one at a time.
+  
 ## Notes
 - Do every character behavior as components, so it can be reusable
 - Implement first, refactor/design pattern later

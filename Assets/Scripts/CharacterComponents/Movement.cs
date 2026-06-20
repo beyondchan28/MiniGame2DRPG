@@ -15,11 +15,6 @@ public class Movement : MonoBehaviour
         moveAction.action.Enable();
     }
 
-    void OnDisable()
-    {
-        moveAction.action.Disable();
-    }
-
     void Update()
     {
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();

@@ -1,11 +1,24 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
+
+    [SerializeField] private InputActionReference interactInput;
     [SerializeField] private float distance = 1f;
     [SerializeField] private LayerMask interactLayer;
 
     Vector2 raycastDirection = Vector2.right;
+
+    void OnEnable()
+    {
+        interactInput.action.Enable();
+    }
+
+    void OnDisable()
+    {
+        interactInput.action.Disable();
+    }
 
     void Update()
     {
@@ -24,7 +37,7 @@ public class Interact : MonoBehaviour
             interactLayer
         );
 
-        if (hit.collider != null)
+        if (hit.collider != null && interactInput.action.WasPressedThisFrame())
         {
             Debug.Log("Hit: " + hit.collider.name);
         }

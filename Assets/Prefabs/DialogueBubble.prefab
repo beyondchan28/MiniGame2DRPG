@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   speaker: {fileID: 6519944493438358098}
   chat: {fileID: 45364108016146073}
+  mainCameraT: {fileID: 0}
 --- !u!1 &6740813347611853899
 GameObject:
   m_ObjectHideFlags: 0

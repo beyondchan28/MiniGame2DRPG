@@ -9,11 +9,17 @@ Look at DialogueManager.cs to add the new Session and Speaker
 
 {
   "NPC_1" : [
-    { "PLAYER": ["Herro...", "Brrr"]},
-    { "ENEMY": ["Bruh", "Brav"]}
-  ],
-  "NPC_2" : [
-    { "PLAYER" : ["Halo...", "WUT"]},
-    { "ENEMY" : ["Yea", "Wle"]}
+    {
+      "speaker": "Player",
+      "dialogueTexts": ["Bruh", "Brav"],
+    },
+    {
+      "speaker": "Enemy",
+      "dialogueTexts": ["Herro...", "Brrr"],
+    },
+    {
+      "speaker": "Player",
+      "dialogueTexts": ["Bruh", "Brav"],
+    },
   ]
 }

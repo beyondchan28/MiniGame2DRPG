@@ -1,0 +1,10 @@
+{
+  "NPC_1" : [
+    { "PLAYER": ["Herro...", "Brrr"]},
+    { "ENEMY": ["Bruh", "Brav"]}
+  ],
+  "NPC_2" : [
+    { "PLAYER" : ["Halo...", "WUT"]},
+    { "ENEMY" : ["Yea", "Wle"]}
+  ]
+}

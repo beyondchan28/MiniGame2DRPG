@@ -23,6 +23,12 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
+
+        Vector2 currentScale = transform.localScale;
+        if (moveInput.x > 0f) currentScale.x = 1;
+        else if (moveInput.x < 0f) currentScale.x = -1;
+        transform.localScale = currentScale;
+
         Vector2 targetVelocity = moveInput * maxSpeed;
 
         float rate = moveInput.sqrMagnitude > 0.01f ? acceleration : deceleration;

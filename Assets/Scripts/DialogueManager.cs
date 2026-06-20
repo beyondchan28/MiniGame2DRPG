@@ -22,17 +22,24 @@ public enum Speaker
 {
     PLAYER,
     ENEMY
-
 }
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private DialogueBubble dialogueBubble;
 
     private DialogueData dialogueData;
 
     void Awake()
     {
         LoadDialogueData();
+        dialogueBubble.Hide();
+    }
+
+    void Start()
+    {
+        dialogueBubble.SetChatBubble("Player", "THEFUCK");
+        dialogueBubble.Show();
     }
 
     private void LoadDialogueData()

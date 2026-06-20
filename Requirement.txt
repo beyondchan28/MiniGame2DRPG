@@ -1,4 +1,4 @@
-Untuk Pre-Interview Test posisi Programmer kami minta pelamar membuat 1 mini game dengan ketentuan sebagai berikut:  
+Untuk Pre-Interview Test posisi Programmer kami minta pelamar membuat 1 mini game dengan ketentuan sebagai berikut:
 
     Membuat mini game turn based RPG di Unity menggunakan ketentuan berikut:
 
@@ -10,7 +10,7 @@ Untuk Pre-Interview Test posisi Programmer kami minta pelamar membuat 1 mini gam
 
             Enemy
 
-            Background  
+            Background
 
         Gameplay
 

@@ -7,7 +7,7 @@ public enum State
     FIGHT,
 }
 
-public class Behaviour : MonoBehaviour
+public class Deed : MonoBehaviour
 {
     [SerializeField] protected CharacterData characterData;
 

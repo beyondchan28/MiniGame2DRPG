@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BehaviourEnemy : Behaviour
+public class DeedEnemy : Deed
 {
     protected override void Init()
     {

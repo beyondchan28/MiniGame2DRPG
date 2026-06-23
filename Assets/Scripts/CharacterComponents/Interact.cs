@@ -78,29 +78,36 @@ public class Interact : MonoBehaviour
         if (detectedDeed.IsHasOpeningChat())
         {
             ChangeState(State.CHAT);
-            dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
         }
         else
         {
-            currentState = State.FIGHT;
+            ChangeState(State.FIGHT);
             // go to fighting
         }
     }
 
     void ChangeState(State state)
     {
-        // NOTE: Logic before changing state
-        switch (state)
+        if (currentState == state)
+        {
+            Debug.Log("[WARNING] Changing State as same as currentState is illegal at the moment");
+            return;
+        }
+
+        currentState = state;
+
+        // NOTE: Logic AFTER changing state
+        switch (currentState)
         {
             case State.WALK:
                 movement.On();
                 break;
             case State.CHAT:
                 movement.Off();
+                dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
                 break;
             case State.FIGHT:
                 break;
         }
-        currentState = state;
     }
 }

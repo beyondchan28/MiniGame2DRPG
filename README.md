@@ -5,7 +5,8 @@
   - [x] movement
   - [x] interact
   - [x] dialogue system
-  - [ ] turn-based fighting with mini game after choosing the fight action
+  - [ ] turn-based fighting 
+  - [ ] mini game after choosing the fight action
   - [ ] agility to determine who's turn
   - [ ] status / resources components with Scriptable object as data container
   - [ ] cutscene system

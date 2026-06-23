@@ -3,19 +3,8 @@ using TMPro;
 
 public class DialogueBubble : MonoBehaviour
 {
-    const float Y_POS_OFFSET = 2f;
-
-    [SerializeField] private TextMeshPro speaker;
-    [SerializeField] private TextMeshPro chat;
-    [SerializeField] private Transform mainCameraT;
-
-    void SetPosition()
-    {
-        Vector3 showPos = mainCameraT.position;
-        showPos.y += Y_POS_OFFSET;
-        showPos.z = 0f;
-        transform.position = showPos;
-    }
+    [SerializeField] private TextMeshProUGUI speaker;
+    [SerializeField] private TextMeshProUGUI chat;
 
     public void SetChatBubble(string speakerTxt, string chatTxt)
     {
@@ -25,7 +14,6 @@ public class DialogueBubble : MonoBehaviour
 
     public void Show()
     {
-        SetPosition();
         gameObject.SetActive(true);
     }
 

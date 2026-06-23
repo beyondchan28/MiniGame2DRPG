@@ -12,10 +12,10 @@
   - [ ] cutscene system
 
 + Important
-  - [x] refactor scripts and folders before submit
+  - [ ] refactor scripts and folders before submit
   
 + Bugs
- - [ ] interact input on Interact class and next dialogue input on DialougeManager class are conflict. need to enable it one at a time.
+ - [x] interact input on Interact class and next dialogue input on DialougeManager class are conflict. need to enable it one at a time.
   
 ## Notes
 - Do every character behavior as components, so it can be reusable

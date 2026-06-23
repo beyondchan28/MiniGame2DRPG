@@ -15,6 +15,11 @@ public class Movement : MonoBehaviour
         moveAction.action.Enable();
     }
 
+    void OnDisable()
+    {
+        moveAction.action.Disable();
+    }
+
     void Update()
     {
         Vector2 moveInput = moveAction.action.ReadValue<Vector2>();
@@ -36,4 +41,7 @@ public class Movement : MonoBehaviour
 
         transform.position += (Vector3)(velocity * Time.deltaTime);
     }
+
+    public void On() { enabled = true; }
+    public void Off() { enabled = false; }
 }

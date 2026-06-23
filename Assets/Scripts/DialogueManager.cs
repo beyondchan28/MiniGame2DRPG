@@ -34,6 +34,8 @@ public class DialogueManager : MonoBehaviour
     private int speakerIndex = 0;
     private List<Data> currentDialogueList;
 
+    private bool isDialogueDone = false;
+
     void Awake()
     {
         LoadDialogueData();
@@ -58,6 +60,7 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 dialogueBubble.Hide();
+                isDialogueDone = true;
             }
         }
     }
@@ -80,6 +83,7 @@ public class DialogueManager : MonoBehaviour
     {
         speakerIndex = 0;
         chatIndex = 0;
+        isDialogueDone = false;
         currentDialogueList = GetDialogueDataList(chat);
         SetDialogue();
         dialogueBubble.Show();
@@ -96,6 +100,10 @@ public class DialogueManager : MonoBehaviour
         string speakerToString = currentDialogueList[speakerIndex].speaker.ToString();
         string speakerText = char.ToUpper(speakerToString[0]) + speakerToString.Substring(1).ToLower();
         dialogueBubble.SetChatBubble(speakerText, chatText);
+    }
+    public bool IsDialgoueDone()
+    {
+        return isDialogueDone;
     }
 
 }

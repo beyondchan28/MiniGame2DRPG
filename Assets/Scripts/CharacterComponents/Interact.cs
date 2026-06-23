@@ -13,10 +13,11 @@ public class Interact : MonoBehaviour
     [SerializeField] private InputActionReference interactInput;
     [SerializeField] private float distance = 1f;
     [SerializeField] private LayerMask interactLayer;
+    [SerializeField] DialogueManager dialogueManager;
+
+    [SerializeField] private Movement movement;
 
     Vector2 raycastDirection = Vector2.right;
-
-    [SerializeField] DialogueManager dialogueManager;
     State currentState = State.WALK;
     Deed detectedDeed = null;
 
@@ -33,8 +34,17 @@ public class Interact : MonoBehaviour
                 WhenWalk();
                 break;
             case State.CHAT:
-                if (interactInput.action.WasPressedThisFrame()) dialogueManager.NextDialogue();
+                WhenChat();
                 break;
+        }
+    }
+
+    void WhenChat()
+    {
+        if (interactInput.action.WasPressedThisFrame())
+        {
+            dialogueManager.NextDialogue();
+            if (dialogueManager.IsDialgoueDone()) ChangeState(State.WALK);
         }
     }
 
@@ -57,17 +67,17 @@ public class Interact : MonoBehaviour
         if (hit.collider != null && interactInput.action.WasPressedThisFrame())
         {
             detectedDeed = hit.collider.GetComponentInParent<Deed>();
-            if (detectedDeed != null) ChooseState();
+            if (detectedDeed != null) OnDetectDeed();
         }
         else detectedDeed = null;
 
     }
 
-    void ChooseState()
+    void OnDetectDeed()
     {
         if (detectedDeed.IsHasOpeningChat())
         {
-            currentState = State.CHAT;
+            ChangeState(State.CHAT);
             dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
         }
         else
@@ -75,5 +85,22 @@ public class Interact : MonoBehaviour
             currentState = State.FIGHT;
             // go to fighting
         }
+    }
+
+    void ChangeState(State state)
+    {
+        // NOTE: Logic before changing state
+        switch (state)
+        {
+            case State.WALK:
+                movement.On();
+                break;
+            case State.CHAT:
+                movement.Off();
+                break;
+            case State.FIGHT:
+                break;
+        }
+        currentState = state;
     }
 }

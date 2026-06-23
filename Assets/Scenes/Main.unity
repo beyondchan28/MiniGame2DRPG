@@ -417,6 +417,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7502837404407724984, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
   m_PrefabInstance: {fileID: 1848514421}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &838446779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1653991003047029133, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+  m_PrefabInstance: {fileID: 1848514421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade2c35c146f2e4738ae83065b7c0e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movement
 --- !u!1 &1350656776
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb5a1ecb272872beba058e5488aa373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  interactInput: {fileID: 4827009874198973101, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   dialogueBubble: {fileID: 474567576}
 --- !u!114 &1350656779
 MonoBehaviour:
@@ -493,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcad8dc94d31f26cb25226b923449b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deed
-  characterData: {fileID: 11400000, guid: c79927222a76dfccf87df4808e546690, type: 2}
+  CharacterData: {fileID: 11400000, guid: c79927222a76dfccf87df4808e546690, type: 2}
 --- !u!1001 &1837388326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -567,6 +577,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: distance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: movement
+      value: 
+      objectReference: {fileID: 838446779}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -574,6 +592,10 @@ PrefabInstance:
       propertyPath: interactInput
       value: 
       objectReference: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1350656778}
     - target: {fileID: 6886122707722575761, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_Name
       value: Player

@@ -11,6 +11,9 @@
   - [ ] status / resources components with Scriptable object as data container
   - [ ] cutscene system
 
++ Important
+  - [x] refactor scripts and folders before submit
+  
 + Bugs
  - [ ] interact input on Interact class and next dialogue input on DialougeManager class are conflict. need to enable it one at a time.
   

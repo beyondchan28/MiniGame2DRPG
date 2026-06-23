@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1f13cf519e8d47cbe214f557c3bd82, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  hitPoint: 3
-  attackPoint: 1
-  defensePoint: 1
-  agility: 1
-  stateOrder: 000000000100000000000000
+  HitPoint: 3
+  AttackPoint: 1
+  DefensePoint: 1
+  Agility: 1
+  OpeningChat: 1
+  FightingChat: 0
+  ClosingChat: 0

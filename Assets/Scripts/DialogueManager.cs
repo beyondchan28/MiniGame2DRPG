@@ -4,40 +4,31 @@ using UnityEngine.InputSystem;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-using DialogueData = System.Collections.Generic.Dictionary<
-    Session,
-    System.Collections.Generic.List<
-        Data
-    >
->;
-
-[System.Serializable]
-public class Data
-{
-    public Speaker speaker;
-    public List<String> dialogueTexts;
-}
-
-
-public enum Session
-{
-    NONE,
-    NPC_1,
-    NPC_2,
-}
-
-public enum Speaker
-{
-    PLAYER,
-    ENEMY
-}
-
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private InputActionReference interactInput;
+    [System.Serializable]
+    public class Data
+    {
+        public Speaker speaker;
+        public List<String> dialogueTexts;
+    }
+
+    public enum Chat
+    {
+        NONE,
+        NPC_1,
+        NPC_2,
+    }
+
+    public enum Speaker
+    {
+        PLAYER,
+        ENEMY
+    }
+
     [SerializeField] private DialogueBubble dialogueBubble;
 
-    private DialogueData dialogueData;
+    private Dictionary<Chat, List<Data>> dialogueData;
 
     private int chatIndex = 0;
     private int speakerIndex = 0;
@@ -47,10 +38,9 @@ public class DialogueManager : MonoBehaviour
     {
         LoadDialogueData();
         dialogueBubble.Hide();
-        interactInput.action.performed += OnInteractButtonPressed;
     }
 
-    void OnInteractButtonPressed(InputAction.CallbackContext context)
+    public void NextDialogue()
     {
         if (chatIndex + 1 < currentDialogueList[speakerIndex].dialogueTexts.Count)
         {
@@ -67,15 +57,9 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                interactInput.action.Disable();
                 dialogueBubble.Hide();
             }
         }
-    }
-
-    void Start()
-    {
-        Begin(Session.NPC_1);
     }
 
     private void LoadDialogueData()
@@ -83,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         TextAsset jsonFile = Resources.Load<TextAsset>("Dialogue");
         if (jsonFile != null)
         {
-            dialogueData = JsonConvert.DeserializeObject<DialogueData>(jsonFile.text);
+            dialogueData = JsonConvert.DeserializeObject<Dictionary<Chat, List<Data>>>(jsonFile.text);
             Debug.Log("[INFO] Dialgoue data succesfully loaded");
         }
         else
@@ -92,19 +76,18 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void Begin(Session session)
+    public void Begin(Chat chat)
     {
         speakerIndex = 0;
         chatIndex = 0;
-        currentDialogueList = GetDialogueDataList(session);
+        currentDialogueList = GetDialogueDataList(chat);
         SetDialogue();
-        interactInput.action.Enable();
         dialogueBubble.Show();
     }
 
-    List<Data> GetDialogueDataList(Session session)
+    List<Data> GetDialogueDataList(Chat chat)
     {
-        return dialogueData[session];
+        return dialogueData[chat];
     }
 
     void SetDialogue()
@@ -114,6 +97,7 @@ public class DialogueManager : MonoBehaviour
         string speakerText = char.ToUpper(speakerToString[0]) + speakerToString.Substring(1).ToLower();
         dialogueBubble.SetChatBubble(speakerText, chatText);
     }
+
 }
 
 

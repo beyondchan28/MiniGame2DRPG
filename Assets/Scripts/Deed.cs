@@ -1,32 +1,11 @@
 using UnityEngine;
 
-public enum State
-{
-    NONE,
-    CHAT,
-    FIGHT,
-}
-
 public class Deed : MonoBehaviour
 {
-    [SerializeField] protected CharacterData characterData;
+    public CharacterData CharacterData;
 
-    protected State currentState;
-
-    public void Execute()
+    public bool IsHasOpeningChat()
     {
-        currentState = characterData.stateOrder[0];
-        Init();
-
-        WhenExecute();
-
-        // Exit();
-
+        return CharacterData.OpeningChat != DialogueManager.Chat.NONE;
     }
-
-    protected virtual void Init() { }
-
-    protected virtual void WhenExecute() { }
-
-    protected virtual void Exit() { }
 }

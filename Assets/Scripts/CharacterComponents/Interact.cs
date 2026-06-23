@@ -3,6 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Interact : MonoBehaviour
 {
+    enum State
+    {
+        WALK,
+        CHAT,
+        FIGHT,
+    }
 
     [SerializeField] private InputActionReference interactInput;
     [SerializeField] private float distance = 1f;
@@ -10,17 +16,29 @@ public class Interact : MonoBehaviour
 
     Vector2 raycastDirection = Vector2.right;
 
+    [SerializeField] DialogueManager dialogueManager;
+    State currentState = State.WALK;
+    Deed detectedDeed = null;
+
     void OnEnable()
     {
         interactInput.action.Enable();
     }
 
-    void OnDisable()
+    void Update()
     {
-        interactInput.action.Disable();
+        switch (currentState)
+        {
+            case State.WALK:
+                WhenWalk();
+                break;
+            case State.CHAT:
+                if (interactInput.action.WasPressedThisFrame()) dialogueManager.NextDialogue();
+                break;
+        }
     }
 
-    void Update()
+    void WhenWalk()
     {
         if (transform.localScale.x == 1f) raycastDirection = Vector2.right;
         else if (transform.localScale.x == -1f) raycastDirection = Vector2.left;
@@ -36,10 +54,26 @@ public class Interact : MonoBehaviour
             distance,
             interactLayer
         );
-
         if (hit.collider != null && interactInput.action.WasPressedThisFrame())
         {
-            Debug.Log("Hit: " + hit.collider.name);
+            detectedDeed = hit.collider.GetComponentInParent<Deed>();
+            if (detectedDeed != null) ChooseState();
+        }
+        else detectedDeed = null;
+
+    }
+
+    void ChooseState()
+    {
+        if (detectedDeed.IsHasOpeningChat())
+        {
+            currentState = State.CHAT;
+            dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
+        }
+        else
+        {
+            currentState = State.FIGHT;
+            // go to fighting
         }
     }
 }

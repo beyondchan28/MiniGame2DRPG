@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
         NONE,
         NPC_1,
         NPC_2,
+        OPEN_CHEST,
+        CLOSE_CHEST
     }
 
     public enum Speaker

@@ -21,5 +21,17 @@ Look at DialogueManager.cs to add the new Session and Speaker
       "speaker": "Player",
       "dialogueTexts": ["Bruh", "Brav"],
     },
+  ],
+  "OPEN_CHEST" : [
+    {
+      "speaker" : "Player",
+      "dialogueTexts": ["Pheww...", "Gotta open this..."]
+    }
+  ],
+  "CLOSE_CHEST" : [
+    {
+      "speaker" : "Player",
+      "dialogueTexts": ["It's already openned..."]
+    }
   ]
 }

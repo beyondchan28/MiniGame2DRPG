@@ -143,6 +143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2377989441552002809, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5567361618205900463, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
       propertyPath: m_Color.g
       value: 0
@@ -199,10 +203,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   interactInput: {fileID: 1781555164194001046, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  distance: 1
+  distance: 3
   interactLayer:
     serializedVersion: 2
     m_Bits: 8
+  dialogueManager: {fileID: 0}
+  movement: {fileID: 1653991003047029133}
 --- !u!4 &8904633828943216122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 361310086302141586, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}

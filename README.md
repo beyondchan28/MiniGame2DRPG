@@ -5,7 +5,8 @@
   - [x] movement
   - [x] interact
   - [x] dialogue system
-  - [ ] interact with chest to gain health, gold, etc
+  - [x] interact with chest to gain health, gold, etc
+  - [ ] added the get value from chest to players stat
   - [ ] turn-based fighting 
   - [ ] mini game after choosing the fight action
   - [ ] agility to determine who's turn

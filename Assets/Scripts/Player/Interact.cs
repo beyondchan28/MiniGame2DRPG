@@ -75,9 +75,13 @@ public class Interact : MonoBehaviour
 
     void OnDetectDeed()
     {
-        if (detectedDeed.IsHasOpeningChat())
+        if (detectedDeed.gameObject.tag == "Chest")
         {
             ChangeState(State.CHAT);
+        }
+        else if (detectedDeed.gameObject.tag == "Enemy")
+        {
+            if (detectedDeed.IsHasOpeningChat()) ChangeState(State.CHAT);
         }
         else
         {
@@ -94,6 +98,18 @@ public class Interact : MonoBehaviour
             return;
         }
 
+        // NOTE: Logic BEFORE changing state
+        switch (currentState)
+        {
+            case State.WALK:
+                break;
+            case State.CHAT:
+                if (detectedDeed.gameObject.tag == "Chest") detectedDeed.AfterOpenChest();
+                break;
+            case State.FIGHT:
+                break;
+        }
+
         currentState = state;
 
         // NOTE: Logic AFTER changing state
@@ -104,7 +120,8 @@ public class Interact : MonoBehaviour
                 break;
             case State.CHAT:
                 movement.Off();
-                dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
+                if (detectedDeed.gameObject.tag == "Enemy") dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
+                else if (detectedDeed.gameObject.tag == "Chest") dialogueManager.Begin(detectedDeed.ChestData.GetChat());
                 break;
             case State.FIGHT:
                 break;

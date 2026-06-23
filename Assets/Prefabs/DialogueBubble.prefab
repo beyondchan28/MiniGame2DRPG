@@ -59,9 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513b5512402979b0da20ade037bc56d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueBubble
-  speaker: {fileID: 0}
-  chat: {fileID: 0}
-  mainCameraT: {fileID: 0}
+  speaker: {fileID: 2664507674334606000}
+  chat: {fileID: 6817652419600969312}
 --- !u!1 &5704468008886859118
 GameObject:
   m_ObjectHideFlags: 0

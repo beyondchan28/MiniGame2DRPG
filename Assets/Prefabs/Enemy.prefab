@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9096042692082205565}
   - component: {fileID: 1247079105666011834}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: InteractCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2377989441552002809, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5567361618205900463, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -152,6 +156,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2377989441552002809, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 587819553323993369}
+    - targetCorrespondingSourceObject: {fileID: 2377989441552002809, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3290108554572313013}
   m_SourcePrefab: {fileID: 100100000, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}
 --- !u!1 &5903805498386236651 stripped
 GameObject:
@@ -172,6 +179,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   interactCollider: {fileID: 1247079105666011834}
   layerName: Interact
+--- !u!114 &3290108554572313013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903805498386236651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcad8dc94d31f26cb25226b923449b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Deed
+  CharacterData: {fileID: 11400000, guid: c79927222a76dfccf87df4808e546690, type: 2}
 --- !u!4 &7377323979028897986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1625608202263743184, guid: 4b0b3a7ff2ef1234c9501bf5221124e2, type: 3}

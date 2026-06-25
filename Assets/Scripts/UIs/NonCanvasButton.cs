@@ -12,7 +12,6 @@ public class NonCanvasButton : MonoBehaviour, IPointerClickHandler, IPointerEnte
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             onClick?.Invoke();
-            Debug.Log("Non-canvas button clicked!");
         }
     }
 

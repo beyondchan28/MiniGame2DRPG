@@ -19,22 +19,17 @@ public class FightPlayer : Fight
 
     public override void Attacking()
     {
-        Debug.Log("Attacking");
-        fightJuice.AttackAnimation();
         targets[targetIndex].Damaged(characterData.Attack);
         base.Attacking();
     }
 
     public override void Defending()
     {
-        fightJuice.DefendAnimation();
-        Debug.Log("Defending");
         base.Defending();
     }
 
     public override void Dodging()
     {
-        fightJuice.DodgeAnimation();
         base.Dodging();
     }
 

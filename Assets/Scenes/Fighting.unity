@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &28500619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7436825107390309907, guid: d5db0ee51ddf4bd63939a2465756e9c6, type: 3}
+  m_PrefabInstance: {fileID: 248619578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fcb36ec616067b5b89acf76355bed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &37448690
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FIghtEnemy
   characterData: {fileID: 11400000, guid: c79927222a76dfccf87df4808e546690, type: 2}
-  fightJuice: {fileID: 0}
+  fightJuice: {fileID: 28500619}
 --- !u!1 &261844927
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,26 +860,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7502837404407724984, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904633828943216122, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904633828943216122, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904633828943216122, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904633828943216122, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904633828943216122, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}

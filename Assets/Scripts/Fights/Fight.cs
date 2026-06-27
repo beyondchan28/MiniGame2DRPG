@@ -34,18 +34,21 @@ public class Fight : MonoBehaviour
     public virtual void Attacking()
     {
         ChangeState(State.ATTACK);
+        fightJuice.AttackAnimation();
         TurnDone();
     }
 
     public virtual void Defending()
     {
         ChangeState(State.DEFEND);
+        fightJuice.DefendAnimation();
         TurnDone();
     }
 
     public virtual void Dodging()
     {
         ChangeState(State.DODGE);
+        fightJuice.DodgeAnimation();
         TurnDone();
     }
 

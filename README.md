@@ -9,9 +9,9 @@
   - [x] turn-based fighting 
   - [x] agility to determine who's turn
   - [x] attack, defends, dodge visuals and mechanism
-  - [ ] added the get value from chest to players stat
+  - [x] status / resources components with Scriptable object as data container
   - [ ] mini game after choosing the fight action to amplified the point
-  - [ ] status / resources components with Scriptable object as data container
+  - [ ] added the get value from chest to players stat
   - [ ] cutscene system
 
 + Important

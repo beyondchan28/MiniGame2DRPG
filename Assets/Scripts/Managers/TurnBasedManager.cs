@@ -4,10 +4,6 @@ using System.Collections.Generic;
 
 public class TurnBasedManager : MonoBehaviour
 {
-    // setup player and enemy/enemies positions
-    // start process agility to determine who's turn
-    // On player, after choose action, there is a mini game to determine its multiplier on attack/damage, defend, or dodge
-
     const float VERTICAL_CHARACTER_SPACING = 30f;
     const float TURN_VISUAL_BASE_SPEED = 300f;
 
@@ -103,6 +99,9 @@ public class TurnBasedManager : MonoBehaviour
 
             if (rt.anchoredPosition.x <= finishPoint)
             {
+                currentPos.x = finishPoint;
+                rt.anchoredPosition = currentPos;
+
                 ResizeTurnVisual(rt, 150f);
                 StopFindingTurn(idx, f);
                 break;

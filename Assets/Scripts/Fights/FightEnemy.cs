@@ -17,19 +17,16 @@ public class FightEnemy : Fight
     public override void Attacking()
     {
         targets[targetIndex].Damaged(characterData.Attack);
-        Debug.Log("Enemy Attacking");
         base.Attacking();
     }
 
     public override void Defending()
     {
-        Debug.Log("Enemy Defending");
         base.Defending();
     }
 
     public override void Dodging()
     {
-        Debug.Log("Enemy Dodging");
         base.Dodging();
     }
 

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1f13cf519e8d47cbe214f557c3bd82, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  Hit: 3
+  Health: 3
   Attack: 1
-  Defense: 1
+  Defense: 0.5
   Agility: 2
   OpeningChat: 0
   FightingChat: 0

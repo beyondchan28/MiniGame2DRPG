@@ -19,7 +19,7 @@ public class Interact : MonoBehaviour
 
     Vector2 raycastDirection = Vector2.right;
     State currentState = State.WALK;
-    Deed detectedDeed = null;
+    Interaction detectedInteraction = null;
 
     void OnEnable()
     {
@@ -66,22 +66,18 @@ public class Interact : MonoBehaviour
         );
         if (hit.collider != null && interactInput.action.WasPressedThisFrame())
         {
-            detectedDeed = hit.collider.GetComponentInParent<Deed>();
-            if (detectedDeed != null) OnDetectDeed();
+            detectedInteraction = hit.collider.GetComponentInParent<Interaction>();
+            if (detectedInteraction != null) OnDetectDeed();
         }
-        else detectedDeed = null;
+        else detectedInteraction = null;
 
     }
 
     void OnDetectDeed()
     {
-        if (detectedDeed.gameObject.tag == "Chest")
+        if (detectedInteraction.IsHasChat())
         {
             ChangeState(State.CHAT);
-        }
-        else if (detectedDeed.gameObject.tag == "Enemy")
-        {
-            if (detectedDeed.IsHasOpeningChat()) ChangeState(State.CHAT);
         }
         else
         {
@@ -104,7 +100,7 @@ public class Interact : MonoBehaviour
             case State.WALK:
                 break;
             case State.CHAT:
-                if (detectedDeed.gameObject.tag == "Chest") detectedDeed.AfterOpenChest();
+                // if (detectedInteraction.gameObject.tag == "Chest") detectedInteraction.AfterOpenChest();
                 break;
             case State.FIGHT:
                 break;
@@ -120,8 +116,9 @@ public class Interact : MonoBehaviour
                 break;
             case State.CHAT:
                 movement.Off();
-                if (detectedDeed.gameObject.tag == "Enemy") dialogueManager.Begin(detectedDeed.CharacterData.OpeningChat);
-                else if (detectedDeed.gameObject.tag == "Chest") dialogueManager.Begin(detectedDeed.ChestData.GetChat());
+                dialogueManager.Begin(detectedInteraction.GetChat());
+                // if (detectedInteraction.gameObject.tag == "Enemy") dialogueManager.Begin(detectedInteraction.CharacterData.OpeningChat);
+                // else if (detectedInteraction.gameObject.tag == "Chest") dialogueManager.Begin(detectedInteraction.ChestData.GetChat());
                 break;
             case State.FIGHT:
                 break;

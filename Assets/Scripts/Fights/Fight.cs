@@ -11,7 +11,7 @@ public class Fight : MonoBehaviour
     }
 
     [SerializeField] protected CharacterData characterData;
-    [SerializeField] protected FightJuice fightJuice;
+    [SerializeField] protected JuiceFight fightJuice;
     protected TurnBasedManager turnBasedManager;
 
     protected float healthPoint = 0f;

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FightJuice : MonoBehaviour
+public class JuiceFight : MonoBehaviour
 {
     public void AttackAnimation()
     {

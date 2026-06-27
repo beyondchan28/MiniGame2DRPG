@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &220167796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,10 +471,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1653991003047029133, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1350656778}
+    - target: {fileID: 4505639321561261783, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6886122707722575761, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_Name
       value: Player

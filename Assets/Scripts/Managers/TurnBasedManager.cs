@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class TurnBasedManager : MonoBehaviour
@@ -72,22 +73,26 @@ public class TurnBasedManager : MonoBehaviour
         turnVisualRT.Add(rt);
     }
 
+    void ResizeTurnVisual(RectTransform rt, float size)
+    {
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
+        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, size);
+    }
+
     void Update()
     {
-        for (int idx = 0; idx < fights.Count; idx += 1)
+        for (int idx = currentIdxTurn; idx < fights.Count; idx += 1)
         {
             Fight f = fights[idx];
             RectTransform rt = turnVisualRT[idx];
 
             Vector3 currentPos = rt.anchoredPosition;
-            currentPos.x -= f.GetCharacterData().Agility * TURN_VISUAL_BASE_SPEED * Time.deltaTime;
+            currentPos.x -= f.GetCharacterData().Agility * (TURN_VISUAL_BASE_SPEED * Time.deltaTime);
             rt.anchoredPosition = currentPos;
 
             if (rt.anchoredPosition.x <= finishPoint)
             {
-                enabled = false;
-                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200f);
-                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200f);
+                ResizeTurnVisual(rt, 150f);
                 Stop(idx, f);
                 break;
             }
@@ -96,9 +101,13 @@ public class TurnBasedManager : MonoBehaviour
 
     public void Play()
     {
-        turnVisualRT[currentIdxTurn].SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 100f);
-        turnVisualRT[currentIdxTurn].SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 100f);
-        turnVisualRT[currentIdxTurn].anchoredPosition = Vector3.zero;
+        Invoke(nameof(DelayPlay), 3f);
+    }
+    void DelayPlay()
+    {
+        RectTransform lastRT = turnVisualRT[currentIdxTurn];
+        ResizeTurnVisual(lastRT, 100f);
+        lastRT.anchoredPosition = Vector3.zero;
         enabled = true;
     }
 
@@ -106,6 +115,7 @@ public class TurnBasedManager : MonoBehaviour
     {
         currentIdxTurn = idx;
         f.TurnBegin();
+        enabled = false;
     }
 
 }

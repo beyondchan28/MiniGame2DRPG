@@ -32,7 +32,7 @@ public class FIghtEnemy : Fight
                 Dodging();
                 break;
         }
-        Invoke(nameof(TurnDone), 3f);
+        TurnDone();
     }
 
     public override void TurnBegin()

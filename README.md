@@ -8,6 +8,7 @@
   - [x] interact with chest to gain health, gold, etc
   - [x] turn-based fighting 
   - [x] agility to determine who's turn
+  - [ ] attack, defends, dodge visuals and mechanism
   - [ ] added the get value from chest to players stat
   - [ ] mini game after choosing the fight action
   - [ ] status / resources components with Scriptable object as data container

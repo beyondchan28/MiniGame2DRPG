@@ -3,6 +3,7 @@ using UnityEngine;
 public class Fight : MonoBehaviour
 {
     [SerializeField] protected CharacterData characterData;
+    [SerializeField] protected FightJuice fightJuice;
     protected TurnBasedManager turnBasedManager;
 
     void Awake()

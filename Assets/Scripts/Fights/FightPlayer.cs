@@ -1,33 +1,41 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class FightPlayer : Fight
 {
     [SerializeField] private GameObject actionButtonsContainer;
 
+    private List<FightEnemy> targets = new List<FightEnemy>();
+    int targetIndex = 0;
+
     protected override void OnAwake()
     {
         HideActionButtons();
+        foreach (var go in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            targets.Add(go.GetComponent<FightEnemy>());
+        }
     }
 
     public override void Attacking()
     {
         Debug.Log("Attacking");
         fightJuice.AttackAnimation();
-        TurnDone();
+        targets[targetIndex].Damaged(characterData.Attack);
+        base.Attacking();
     }
 
     public override void Defending()
     {
         fightJuice.DefendAnimation();
         Debug.Log("Defending");
-        TurnDone();
+        base.Defending();
     }
 
     public override void Dodging()
     {
         fightJuice.DodgeAnimation();
-        Debug.Log("Dodging");
-        TurnDone();
+        base.Dodging();
     }
 
     public override void TurnBegin()
@@ -38,7 +46,7 @@ public class FightPlayer : Fight
     public override void TurnDone()
     {
         HideActionButtons();
-        turnBasedManager.Play();
+        turnBasedManager.FindTurn();
     }
 
     void ShowActionButtons()

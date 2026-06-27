@@ -1,20 +1,36 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class FIghtEnemy : Fight
+public class FightEnemy : Fight
 {
+    private List<FightPlayer> targets = new List<FightPlayer>();
+    int targetIndex = 0;
+
+    protected override void OnAwake()
+    {
+        foreach (var go in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            targets.Add(go.GetComponent<FightPlayer>());
+        }
+    }
+
     public override void Attacking()
     {
+        targets[targetIndex].Damaged(characterData.Attack);
         Debug.Log("Enemy Attacking");
+        base.Attacking();
     }
 
     public override void Defending()
     {
         Debug.Log("Enemy Defending");
+        base.Defending();
     }
 
     public override void Dodging()
     {
         Debug.Log("Enemy Dodging");
+        base.Dodging();
     }
 
     void ChooseAction()
@@ -32,7 +48,6 @@ public class FIghtEnemy : Fight
                 Dodging();
                 break;
         }
-        TurnDone();
     }
 
     public override void TurnBegin()
@@ -42,6 +57,6 @@ public class FIghtEnemy : Fight
 
     public override void TurnDone()
     {
-        turnBasedManager.Play();
+        turnBasedManager.FindTurn();
     }
 }

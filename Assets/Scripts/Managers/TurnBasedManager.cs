@@ -21,6 +21,9 @@ public class TurnBasedManager : MonoBehaviour
     private float finishPoint;
     private int currentIdxTurn = 0;
 
+    private int enemyAmount = 0;
+    private int playerAmount = 0;
+
     void Awake()
     {
         SetupFights();
@@ -32,12 +35,17 @@ public class TurnBasedManager : MonoBehaviour
     {
         if (fights.Count != 0) fights.Clear();
 
+        enemyAmount = 0;
+        playerAmount = 0;
+
         foreach (var go in GameObject.FindGameObjectsWithTag("Player"))
         {
+            playerAmount += 1;
             fights.Add(go.GetComponent<Fight>());
         }
         foreach (var go in GameObject.FindGameObjectsWithTag("Enemy"))
         {
+            enemyAmount += 1;
             fights.Add(go.GetComponent<Fight>());
         }
     }
@@ -81,9 +89,12 @@ public class TurnBasedManager : MonoBehaviour
 
     void Update()
     {
-        for (int idx = currentIdxTurn; idx < fights.Count; idx += 1)
+        for (int idx = 0; idx < fights.Count; idx += 1)
         {
             Fight f = fights[idx];
+
+            if (f.IsDead()) continue;
+
             RectTransform rt = turnVisualRT[idx];
 
             Vector3 currentPos = rt.anchoredPosition;
@@ -93,17 +104,18 @@ public class TurnBasedManager : MonoBehaviour
             if (rt.anchoredPosition.x <= finishPoint)
             {
                 ResizeTurnVisual(rt, 150f);
-                Stop(idx, f);
+                StopFindingTurn(idx, f);
                 break;
             }
         }
     }
 
-    public void Play()
+    public void FindTurn()
     {
-        Invoke(nameof(DelayPlay), 3f);
+        if (IsFightEnded()) return;
+        Invoke(nameof(DelayFindTurn), 1f);
     }
-    void DelayPlay()
+    void DelayFindTurn()
     {
         RectTransform lastRT = turnVisualRT[currentIdxTurn];
         ResizeTurnVisual(lastRT, 100f);
@@ -111,11 +123,32 @@ public class TurnBasedManager : MonoBehaviour
         enabled = true;
     }
 
-    void Stop(int idx, Fight f)
+    void StopFindingTurn(int idx, Fight f)
     {
         currentIdxTurn = idx;
         f.TurnBegin();
         enabled = false;
+    }
+
+    bool IsFightEnded()
+    {
+        if (enemyAmount == 0 || playerAmount == 0)
+        {
+            Debug.Log("[INFO] FIGHT ENDED");
+            line.gameObject.SetActive(false);
+            return true;
+        }
+        else return false;
+    }
+
+    public void DecreasePlayerAmount()
+    {
+        playerAmount -= 1;
+    }
+
+    public void DecreaseEnemyAmount()
+    {
+        enemyAmount -= 1;
     }
 
 }

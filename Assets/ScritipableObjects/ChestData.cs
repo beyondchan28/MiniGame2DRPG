@@ -12,7 +12,7 @@ public class ChestData : ScriptableObject
     }
 
     public Type ChestType;
-    public int ValueOnOpen;
+    public float ValueOnOpen;
     [SerializeField] private DialogueManager.Chat openChat;
     [SerializeField] private DialogueManager.Chat closeChat;
     private DialogueManager.Chat chat;

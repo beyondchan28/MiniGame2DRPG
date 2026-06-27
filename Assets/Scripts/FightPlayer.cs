@@ -4,11 +4,8 @@ public class FightPlayer : Fight
 {
     [SerializeField] private GameObject actionButtonsContainer;
 
-    private TurnBasedManager turnBasedManager;
-
-    void Awake()
+    protected override void OnAwake()
     {
-        turnBasedManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<TurnBasedManager>();
         HideActionButtons();
     }
 
@@ -40,7 +37,6 @@ public class FightPlayer : Fight
         HideActionButtons();
         turnBasedManager.Play();
     }
-
 
     void ShowActionButtons()
     {

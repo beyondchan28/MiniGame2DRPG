@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class Fight : MonoBehaviour
 {
-    [SerializeField] private CharacterData characterData;
+    [SerializeField] protected CharacterData characterData;
+    protected TurnBasedManager turnBasedManager;
+
+    void Awake()
+    {
+        turnBasedManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<TurnBasedManager>();
+        OnAwake();
+    }
+
+    protected virtual void OnAwake() { }
 
     public virtual void TurnBegin() { }
 

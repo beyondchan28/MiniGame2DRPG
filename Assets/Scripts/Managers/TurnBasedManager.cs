@@ -8,7 +8,7 @@ public class TurnBasedManager : MonoBehaviour
     // On player, after choose action, there is a mini game to determine its multiplier on attack/damage, defend, or dodge
 
     const float VERTICAL_CHARACTER_SPACING = 30f;
-    const float TURN_VISUAL_BASE_SPEED = 100f;
+    const float TURN_VISUAL_BASE_SPEED = 300f;
 
     [SerializeField] private GameObject playerVisual;
     [SerializeField] private GameObject enemyVisual;
@@ -85,13 +85,19 @@ public class TurnBasedManager : MonoBehaviour
 
             if (rt.anchoredPosition.x <= finishPoint)
             {
+                enabled = false;
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 200f);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 200f);
                 Stop(idx, f);
+                break;
             }
         }
     }
 
     public void Play()
     {
+        turnVisualRT[currentIdxTurn].SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 100f);
+        turnVisualRT[currentIdxTurn].SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 100f);
         turnVisualRT[currentIdxTurn].anchoredPosition = Vector3.zero;
         enabled = true;
     }
@@ -100,7 +106,6 @@ public class TurnBasedManager : MonoBehaviour
     {
         currentIdxTurn = idx;
         f.TurnBegin();
-        enabled = false;
     }
 
 }

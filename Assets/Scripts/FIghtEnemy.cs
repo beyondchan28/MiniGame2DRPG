@@ -16,4 +16,32 @@ public class FIghtEnemy : Fight
     {
         Debug.Log("Enemy Dodging");
     }
+
+    void ChooseAction()
+    {
+        int randomVal = UnityEngine.Random.Range(0, 3);
+        switch (randomVal)
+        {
+            case 0:
+                Attacking();
+                break;
+            case 1:
+                Defending();
+                break;
+            case 2:
+                Dodging();
+                break;
+        }
+        Invoke(nameof(TurnDone), 3f);
+    }
+
+    public override void TurnBegin()
+    {
+        ChooseAction();
+    }
+
+    public override void TurnDone()
+    {
+        turnBasedManager.Play();
+    }
 }

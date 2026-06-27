@@ -6,10 +6,10 @@
   - [x] interact
   - [x] dialogue system
   - [x] interact with chest to gain health, gold, etc
+  - [x] turn-based fighting 
+  - [x] agility to determine who's turn
   - [ ] added the get value from chest to players stat
-  - [ ] turn-based fighting 
   - [ ] mini game after choosing the fight action
-  - [ ] agility to determine who's turn
   - [ ] status / resources components with Scriptable object as data container
   - [ ] cutscene system
 

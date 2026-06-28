@@ -10,9 +10,9 @@
   - [x] agility to determine who's turn
   - [x] attack, defends, dodge visuals and mechanism
   - [x] status / resources components with Scriptable object as data container
+  - [x] added the get value from chest to players stat
   - [ ] mini game after choosing the fight action to amplified the point
   - [ ] full game loop
-  - [ ] added the get value from chest to players stat
   - [ ] cutscene system
 
 + Important

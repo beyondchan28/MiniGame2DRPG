@@ -7,8 +7,7 @@ public class PlayerInteract : MonoBehaviour
     enum State
     {
         WALK,
-        CHAT,
-        FIGHT,
+        INTERACT,
     }
 
     [SerializeField] private FightData fightDataPlayer;
@@ -34,13 +33,13 @@ public class PlayerInteract : MonoBehaviour
             case State.WALK:
                 WhenWalk();
                 break;
-            case State.CHAT:
-                WhenChat();
+            case State.INTERACT:
+                WhenInteract();
                 break;
         }
     }
 
-    void WhenChat()
+    void WhenInteract()
     {
         if (interactInput.action.WasPressedThisFrame())
         {
@@ -48,16 +47,8 @@ public class PlayerInteract : MonoBehaviour
             if (dialogueManager.IsDialgoueDone())
             {
                 detectedInteraction.Data.AfterInteract();
-                if (detectedInteraction.IsHasAction())
-                {
-                    switch(detectedInteraction.Data.action)
-                    {
-                        case InteractionData.Action.FIGHT:
-                            break;
-                        case InteractionData.Action.HAND_OUT:
-                            break;
-                    }
-                }
+                detectedInteraction.DoAction();
+                ChangeState(State.WALK);
             }
         }
     }
@@ -81,23 +72,9 @@ public class PlayerInteract : MonoBehaviour
         if (hit.collider != null && interactInput.action.WasPressedThisFrame())
         {
             detectedInteraction = hit.collider.GetComponentInParent<Interaction>();
-            if (detectedInteraction != null) OnDetectDeed();
+            if (detectedInteraction != null) ChangeState(State.INTERACT);
         }
         else detectedInteraction = null;
-
-    }
-
-    void OnDetectDeed()
-    {
-        if (detectedInteraction.IsHasChat())
-        {
-            ChangeState(State.CHAT);
-        }
-        else
-        {
-            ChangeState(State.FIGHT);
-            // go to fighting
-        }
     }
 
     void ChangeState(State state)
@@ -115,11 +92,9 @@ public class PlayerInteract : MonoBehaviour
             case State.WALK:
                 playerMovement.On();
                 break;
-            case State.CHAT:
+            case State.INTERACT:
                 playerMovement.Off();
                 dialogueManager.Begin(detectedInteraction.Data.GetChat());
-                break;
-            case State.FIGHT:
                 break;
         }
     }

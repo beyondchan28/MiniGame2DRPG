@@ -6,7 +6,7 @@ public class InteractionData : ScriptableObject
     public enum PointType
     {
         NONE,
-        HIT,
+        HEALTH,
         AGILITY,
         ATTACK,
         DEFENSE

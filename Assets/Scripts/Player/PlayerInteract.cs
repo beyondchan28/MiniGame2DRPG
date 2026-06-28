@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
-public class Interact : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     enum State
     {
@@ -10,12 +11,12 @@ public class Interact : MonoBehaviour
         FIGHT,
     }
 
+    [SerializeField] private FightData fightDataPlayer;
     [SerializeField] private InputActionReference interactInput;
     [SerializeField] private float distance = 1f;
     [SerializeField] private LayerMask interactLayer;
     [SerializeField] DialogueManager dialogueManager;
-
-    [SerializeField] private Movement movement;
+    [SerializeField] private PlayerMovement playerMovement;
 
     Vector2 raycastDirection = Vector2.right;
     State currentState = State.WALK;
@@ -44,7 +45,20 @@ public class Interact : MonoBehaviour
         if (interactInput.action.WasPressedThisFrame())
         {
             dialogueManager.NextDialogue();
-            if (dialogueManager.IsDialgoueDone()) ChangeState(State.WALK);
+            if (dialogueManager.IsDialgoueDone())
+            {
+                detectedInteraction.Data.AfterInteract();
+                if (detectedInteraction.IsHasAction())
+                {
+                    switch(detectedInteraction.Data.action)
+                    {
+                        case InteractionData.Action.FIGHT:
+                            break;
+                        case InteractionData.Action.HAND_OUT:
+                            break;
+                    }
+                }
+            }
         }
     }
 
@@ -94,31 +108,16 @@ public class Interact : MonoBehaviour
             return;
         }
 
-        // NOTE: Logic BEFORE changing state
-        switch (currentState)
-        {
-            case State.WALK:
-                break;
-            case State.CHAT:
-                // if (detectedInteraction.gameObject.tag == "Chest") detectedInteraction.AfterOpenChest();
-                break;
-            case State.FIGHT:
-                break;
-        }
-
         currentState = state;
 
-        // NOTE: Logic AFTER changing state
         switch (currentState)
         {
             case State.WALK:
-                movement.On();
+                playerMovement.On();
                 break;
             case State.CHAT:
-                movement.Off();
-                dialogueManager.Begin(detectedInteraction.GetChat());
-                // if (detectedInteraction.gameObject.tag == "Enemy") dialogueManager.Begin(detectedInteraction.CharacterData.OpeningChat);
-                // else if (detectedInteraction.gameObject.tag == "Chest") dialogueManager.Begin(detectedInteraction.ChestData.GetChat());
+                playerMovement.Off();
+                dialogueManager.Begin(detectedInteraction.Data.GetChat());
                 break;
             case State.FIGHT:
                 break;

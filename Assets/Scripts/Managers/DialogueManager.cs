@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     public enum Speaker
     {
+        NONE,
         PLAYER,
         ENEMY
     }

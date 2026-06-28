@@ -476,6 +476,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: popup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -483,6 +487,10 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1350656778}
+    - target: {fileID: 2124116387952556266, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
+      propertyPath: fightDataPlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fbe304691b13b453bf3e37080514ddd, type: 2}
     - target: {fileID: 4505639321561261783, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -531,7 +539,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4505639321561261783, guid: dc1ab796b10a3ece58590a2d94aca20a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -785,6 +794,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 3710792490383910975, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 574da15812b0a6c7692df86b174ddf6c, type: 2}
     - target: {fileID: 3710792490383910975, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
       propertyPath: ChestData
       value: 

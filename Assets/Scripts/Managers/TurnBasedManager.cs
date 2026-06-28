@@ -94,7 +94,7 @@ public class TurnBasedManager : MonoBehaviour
             RectTransform rt = turnVisualRT[idx];
 
             Vector3 currentPos = rt.anchoredPosition;
-            currentPos.x -= f.GetCharacterData().Agility * (TURN_VISUAL_BASE_SPEED * Time.deltaTime);
+            currentPos.x -= f.GetFightData().Agility * (TURN_VISUAL_BASE_SPEED * Time.deltaTime);
             rt.anchoredPosition = currentPos;
 
             if (rt.anchoredPosition.x <= finishPoint)

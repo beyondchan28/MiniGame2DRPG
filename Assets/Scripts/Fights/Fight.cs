@@ -10,7 +10,7 @@ public class Fight : MonoBehaviour
         DODGE
     }
 
-    [SerializeField] protected CharacterData characterData;
+    [SerializeField] protected FightData fightData;
     [SerializeField] protected JuiceFight fightJuice;
     protected TurnBasedManager turnBasedManager;
 
@@ -22,7 +22,7 @@ public class Fight : MonoBehaviour
     {
         turnBasedManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<TurnBasedManager>();
         OnAwake();
-        healthPoint = characterData.Health;
+        healthPoint = fightData.Health;
     }
 
     protected virtual void OnAwake() { }
@@ -52,9 +52,9 @@ public class Fight : MonoBehaviour
         TurnDone();
     }
 
-    public CharacterData GetCharacterData()
+    public FightData GetFightData()
     {
-        return characterData;
+        return fightData;
     }
 
     public void Damaged(float damage)
@@ -63,7 +63,7 @@ public class Fight : MonoBehaviour
         {
             case State.DEFEND:
                 currentState = State.NONE;
-                Damaging(damage - characterData.Defense);
+                Damaging(damage - fightData.Defense);
                 break;
             case State.DODGE:
                 int randomChance = UnityEngine.Random.Range(0, 2);

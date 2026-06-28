@@ -8,6 +8,12 @@ Look at DialogueManager.cs to add the new Session and Speaker
 */
 
 {
+  "NONE": [
+    {
+      "speaker": "NONE",
+      "dialogueTexts": ["..."],
+    }
+  ],
   "NPC_1" : [
     {
       "speaker": "Player",

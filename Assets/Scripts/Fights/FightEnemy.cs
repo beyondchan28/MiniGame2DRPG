@@ -16,7 +16,7 @@ public class FightEnemy : Fight
 
     public override void Attacking()
     {
-        targets[targetIndex].Damaged(characterData.Attack);
+        targets[targetIndex].Damaged(fightData.Attack);
         base.Attacking();
     }
 

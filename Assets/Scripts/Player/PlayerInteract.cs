@@ -4,9 +4,10 @@ using System.Collections;
 
 public class PlayerInteract : MonoBehaviour
 {
-    enum State
+    public enum State
     {
         WALK,
+        CUTSCENE,
         INTERACT,
     }
 
@@ -23,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
     void OnEnable()
     {
         interactInput.action.Enable();
+        ChangeState(State.CUTSCENE);
     }
 
     void Update()
@@ -34,6 +36,9 @@ public class PlayerInteract : MonoBehaviour
                 break;
             case State.INTERACT:
                 WhenInteract();
+                break;
+            case State.CUTSCENE:
+                WhenCutscene();
                 break;
         }
     }
@@ -48,6 +53,13 @@ public class PlayerInteract : MonoBehaviour
                 detectedInteraction.AfterInteract();
                 ChangeState(State.WALK);
             }
+        }
+    }
+    void WhenCutscene()
+    {
+        if (interactInput.action.WasPressedThisFrame())
+        {
+            DialogueManager.Instance.NextDialogue();
         }
     }
 
@@ -75,7 +87,7 @@ public class PlayerInteract : MonoBehaviour
         else detectedInteraction = null;
     }
 
-    void ChangeState(State state)
+    public void ChangeState(State state)
     {
         if (currentState == state)
         {
@@ -93,6 +105,9 @@ public class PlayerInteract : MonoBehaviour
             case State.INTERACT:
                 playerMovement.Off();
                 DialogueManager.Instance.Begin(detectedInteraction.Data.GetChat());
+                break;
+            case State.CUTSCENE:
+                playerMovement.Off();
                 break;
         }
     }

@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public enum Chat
     {
         NONE,
+        INTRO,
         NPC_OPEN_FIGHT,
         NPC_CLOSE_FIGHT,
         OPEN_CHEST,
@@ -101,7 +102,6 @@ public class DialogueManager : MonoBehaviour
         isDialogueDone = false;
         currentDialogueList = GetDialogueDataList(chat);
         SetDialogue();
-        CutsceneDirector.Instance.StartCutscene("CutsceneOne");
         dialogueBubble.Show();
     }
 

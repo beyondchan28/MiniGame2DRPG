@@ -14,6 +14,12 @@ Look at DialogueManager.cs to add the new Session and Speaker
       "dialogueTexts": ["..."],
     }
   ],
+  "INTRO": [
+    {
+      "speaker": "Player",
+      "dialogueTexts": ["Hello world!", "I'm so excited to explore this world", "Might happiness found me!", "Amen..."],
+    }
+  ],
   "NPC_OPEN_FIGHT" : [
     {
       "speaker": "Enemy",

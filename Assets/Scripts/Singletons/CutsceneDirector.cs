@@ -23,6 +23,8 @@ public class CutsceneDirector : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this);
+
+        StartCutscene("CutsceneOne");
     }
 
     public void StartCutscene(string cutsceneName)
@@ -34,9 +36,32 @@ public class CutsceneDirector : MonoBehaviour
     {
         Debug.Log("[INFO] Cutscene one BEGIN");
 
+        DialogueManager.Instance.Begin(DialogueManager.Chat.INTRO);
         yield return new WaitUntil(() => DialogueManager.Instance.IsDialogueDone());
 
-        Debug.Log("[INFO] Cutscene one END");
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
 
+        Vector3 targetPos = Vector3.zero;
+        float duration = 2f;
+        yield return StartCoroutine(MoveToPosition(playerGO.transform, targetPos, duration));
+
+        playerGO.GetComponent<PlayerInteract>().ChangeState(PlayerInteract.State.WALK);
+        Debug.Log("[INFO] Cutscene one END");
+    }
+
+    IEnumerator MoveToPosition(Transform targetT, Vector3 target, float timeToMove)
+    {
+        Vector3 startPosition = targetT.position;
+        float elapsedTime = 0;
+
+        while (elapsedTime < timeToMove)
+        {
+            float percentage = elapsedTime / timeToMove;
+            targetT.position = Vector3.Lerp(startPosition, target, percentage);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        targetT.position = target;
     }
 }

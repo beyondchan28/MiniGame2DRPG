@@ -135,6 +135,7 @@ public class TurnBasedManager : MonoBehaviour
         {
             Debug.Log("[INFO] FIGHT ENDED");
             line.gameObject.SetActive(false);
+            SceneSelector.Instance.LoadScene("Main");
             return true;
         }
         else return false;

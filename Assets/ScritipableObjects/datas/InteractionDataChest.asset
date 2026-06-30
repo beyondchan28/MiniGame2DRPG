@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9596c9e1f3a21e54b18561ee301183d, type: 3}
   m_Name: InteractionDataChest
   m_EditorClassIdentifier: Assembly-CSharp::ChestData
-  action: 2
   pointType: 2
-  value: 1
-  interactChat: 3
-  afterInteractChat: 4
+  value: 0.2
+  interactChat: 4
+  afterInteractChat: 5

@@ -11,12 +11,12 @@
   - [x] attack, defends, dodge visuals and mechanism
   - [x] status / resources components with Scriptable object as data container
   - [x] added the get value from chest to players stat
-  - [ ] cutscene system
+  - [x] cutscene system
+  - [x] full game loop
   - [ ] mini game after choosing the fight action to amplified the point
-  - [ ] full game loop
 
 + Important
-  - [ ] refactor scripts and folders before submit
+  - [x] refactor scripts and folders before submit
   
 + Bugs
  - [x] interact input on Interact class and next dialogue input on DialougeManager class are conflict. need to enable it one at a time.

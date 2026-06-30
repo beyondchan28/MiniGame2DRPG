@@ -24,7 +24,6 @@ public class PlayerInteract : MonoBehaviour
     void OnEnable()
     {
         interactInput.action.Enable();
-        ChangeState(State.CUTSCENE);
     }
 
     void Update()

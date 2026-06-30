@@ -4,11 +4,8 @@ public class InteractionHandOut : Interaction
 {
     [SerializeField] protected FightData playerFightData;
 
-    bool isOpened = false;
-
     protected override void OnAfterInteract()
     {
-        if (isOpened) return;
         switch (Data.pointType)
         {
             case InteractionData.PointType.HEALTH:
@@ -25,6 +22,5 @@ public class InteractionHandOut : Interaction
                 break;
         }
         Debug.Log($"[INFO] Got {Data.value} point of {Data.pointType}");
-        isOpened = true;
     }
 }

@@ -6,6 +6,11 @@ public class DialogueBubble : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speaker;
     [SerializeField] private TextMeshProUGUI chat;
 
+    void Awake()
+    {
+        Hide();
+    }
+
     public void SetChatBubble(string speakerTxt, string chatTxt)
     {
         speaker.text = speakerTxt;

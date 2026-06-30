@@ -35,5 +35,4 @@ public class InteractionData : ScriptableObject
     {
         return chat;
     }
-
 }

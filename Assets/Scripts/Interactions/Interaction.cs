@@ -3,11 +3,37 @@ using UnityEngine;
 public class Interaction : MonoBehaviour
 {
     public InteractionData Data;
+    [SerializeField]
+    private string guid;
 
-    void Awake()
+    public string Guid => guid;
+
+    private void Awake()
     {
-        Data.Setup();
+#if UNITY_EDITOR
+        // Generate a GUID only once while editing.
+        if (!Application.isPlaying)
+        {
+            GenerateGuid();
+        }
+#endif
     }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        GenerateGuid();
+    }
+
+    private void GenerateGuid()
+    {
+        if (string.IsNullOrEmpty(guid))
+        {
+            guid = System.Guid.NewGuid().ToString();
+            UnityEditor.EditorUtility.SetDirty(this);
+        }
+    }
+#endif
 
     public bool IsHasChat()
     {
@@ -16,7 +42,9 @@ public class Interaction : MonoBehaviour
 
     public void AfterInteract()
     {
+        if (WorldData.Instance.IsInteracted(guid)) return;
         Data.AfterInteract();
+        WorldData.Instance.Interacted(guid);
         OnAfterInteract();
     }
 

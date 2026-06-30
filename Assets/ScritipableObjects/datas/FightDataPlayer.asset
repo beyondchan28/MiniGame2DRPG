@@ -15,7 +15,4 @@ MonoBehaviour:
   Health: 3
   Attack: 1
   Defense: 0.5
-  Agility: 2
-  OpeningChat: 0
-  FightingChat: 0
-  ClosingChat: 0
+  Agility: 5

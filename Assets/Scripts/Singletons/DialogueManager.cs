@@ -53,7 +53,6 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
 
         LoadDialogueData();
-        dialogueBubble.Hide();
 
         DontDestroyOnLoad(this);
     }

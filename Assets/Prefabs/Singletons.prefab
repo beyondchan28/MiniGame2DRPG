@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5308329715127371186}
   - component: {fileID: 8870334611907247628}
   - component: {fileID: 247663376117127565}
+  - component: {fileID: 4245637375951089126}
   - component: {fileID: 8136790770078766359}
   m_Layer: 0
   m_Name: Singletons
@@ -59,6 +60,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialogueBubble: {fileID: 0}
+--- !u!114 &4245637375951089126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114378177861468515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b69caef3a7b9f9b98ded69ad2a0845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldData
 --- !u!114 &8136790770078766359
 MonoBehaviour:
   m_ObjectHideFlags: 0

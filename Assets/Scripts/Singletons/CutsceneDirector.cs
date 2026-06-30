@@ -35,17 +35,20 @@ public class CutsceneDirector : MonoBehaviour
     IEnumerator CutsceneOne()
     {
         Debug.Log("[INFO] Cutscene one BEGIN");
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+
+        PlayerInteract pi = playerGO.GetComponent<PlayerInteract>();
+        pi.ChangeState(PlayerInteract.State.CUTSCENE);
 
         DialogueManager.Instance.Begin(DialogueManager.Chat.INTRO);
         yield return new WaitUntil(() => DialogueManager.Instance.IsDialogueDone());
 
-        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
 
         Vector3 targetPos = Vector3.zero;
         float duration = 2f;
         yield return StartCoroutine(MoveToPosition(playerGO.transform, targetPos, duration));
 
-        playerGO.GetComponent<PlayerInteract>().ChangeState(PlayerInteract.State.WALK);
+        pi.ChangeState(PlayerInteract.State.WALK);
         Debug.Log("[INFO] Cutscene one END");
     }
 

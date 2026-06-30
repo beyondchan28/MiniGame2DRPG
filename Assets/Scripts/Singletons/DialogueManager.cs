@@ -45,7 +45,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            // Destroy(gameObject);
             Destroy(this);
             return;
         }
@@ -55,7 +54,6 @@ public class DialogueManager : MonoBehaviour
         LoadDialogueData();
         dialogueBubble.Hide();
 
-        // DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(this);
     }
 
@@ -103,7 +101,7 @@ public class DialogueManager : MonoBehaviour
         isDialogueDone = false;
         currentDialogueList = GetDialogueDataList(chat);
         SetDialogue();
-        CutsceneDirector.Instance.StartCutscene();
+        CutsceneDirector.Instance.StartCutscene("CutsceneOne");
         dialogueBubble.Show();
     }
 

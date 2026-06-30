@@ -12,7 +12,7 @@ public class Fight : MonoBehaviour
 
     [SerializeField] protected FightData fightData;
     [SerializeField] protected JuiceFight fightJuice;
-    protected TurnBasedManager turnBasedManager;
+    [SerializeField] protected TurnBasedManager turnBasedManager;
 
     protected float healthPoint = 0f;
     protected bool isDead = false;
@@ -20,7 +20,6 @@ public class Fight : MonoBehaviour
 
     void Awake()
     {
-        turnBasedManager = GameObject.FindGameObjectWithTag("Managers").GetComponent<TurnBasedManager>();
         OnAwake();
         healthPoint = fightData.Health;
     }

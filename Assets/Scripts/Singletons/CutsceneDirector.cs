@@ -1,26 +1,33 @@
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CutsceneDirector : MonoBehaviour
 {
     public static CutsceneDirector Instance;
 
+    private Dictionary<string, Func<IEnumerator>> cutscenes;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            // Destroy(gameObject);
             Destroy(this);
             return;
         }
+
+        cutscenes = new Dictionary<string, Func<IEnumerator>>() {
+            {"CutsceneOne", CutsceneOne}
+        };
 
         Instance = this;
         DontDestroyOnLoad(this);
     }
 
-    public void StartCutscene()
+    public void StartCutscene(string cutsceneName)
     {
-        StartCoroutine(CutsceneOne());
+        StartCoroutine(cutscenes[cutsceneName].Invoke());
     }
 
     IEnumerator CutsceneOne()

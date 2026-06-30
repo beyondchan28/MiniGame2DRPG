@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8623870860873306122}
   - component: {fileID: 3710792490383910975}
   m_Layer: 0
-  m_Name: Chest
+  m_Name: Interactable
   m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcad8dc94d31f26cb25226b923449b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Deed
-  CharacterData: {fileID: 0}
+  playerFightData: {fileID: 11400000, guid: 6fbe304691b13b453bf3e37080514ddd, type: 2}
+  Data: {fileID: 0}
 --- !u!1 &3952857474185629118
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,18 +14,36 @@ Look at DialogueManager.cs to add the new Session and Speaker
       "dialogueTexts": ["..."],
     }
   ],
-  "NPC_1" : [
+  "NPC_OPEN_FIGHT" : [
+    {
+      "speaker": "Enemy",
+      "dialogueTexts": ["Hey...", "You look and act tough."],
+    },
     {
       "speaker": "Player",
-      "dialogueTexts": ["Bruh", "Brav"],
+      "dialogueTexts": ["...", "Excuse me ?"],
     },
     {
       "speaker": "Enemy",
-      "dialogueTexts": ["Herro...", "Brrr"],
+      "dialogueTexts": ["Only me can act tough around here!", "Let's fight and see who's better!"],
     },
     {
       "speaker": "Player",
-      "dialogueTexts": ["Bruh", "Brav"],
+      "dialogueTexts": ["Yooo chill out gang!", "I'm not tryna to fight with anybody"],
+    },
+    {
+      "speaker": "Enemy",
+      "dialogueTexts": ["Too little too late lil boy!"],
+    },
+  ],
+  "NPC_CLOSE_FIGHT" : [
+    {
+      "speaker": "Enemy",
+      "dialogueTexts": ["Ion care about the result...", "That was fun, lil boy"],
+    },
+    {
+      "speaker": "Player",
+      "dialogueTexts": ["You such a weird person", "Not gonna lie..."],
     },
   ],
   "OPEN_CHEST" : [

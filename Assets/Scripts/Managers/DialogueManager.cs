@@ -16,8 +16,8 @@ public class DialogueManager : MonoBehaviour
     public enum Chat
     {
         NONE,
-        NPC_1,
-        NPC_2,
+        NPC_OPEN_FIGHT,
+        NPC_CLOSE_FIGHT,
         OPEN_CHEST,
         CLOSE_CHEST
     }

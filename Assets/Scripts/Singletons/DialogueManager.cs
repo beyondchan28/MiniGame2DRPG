@@ -45,7 +45,8 @@ public class DialogueManager : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            Destroy(this);
             return;
         }
 
@@ -54,7 +55,8 @@ public class DialogueManager : MonoBehaviour
         LoadDialogueData();
         dialogueBubble.Hide();
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
     }
 
     public void NextDialogue()

@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
         ENEMY
     }
 
+    public static DialogueManager Instance;
+
     [SerializeField] private DialogueBubble dialogueBubble;
 
     private Dictionary<Chat, List<Data>> dialogueData;
@@ -41,8 +43,18 @@ public class DialogueManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         LoadDialogueData();
         dialogueBubble.Hide();
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void NextDialogue()

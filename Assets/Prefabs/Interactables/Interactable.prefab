@@ -88,7 +88,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4054419392575547033}
   - component: {fileID: 8623870860873306122}
-  - component: {fileID: 3710792490383910975}
   m_Layer: 0
   m_Name: Interactable
   m_TagString: Chest
@@ -127,20 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactCollider: {fileID: 7896816868086219486}
   layerName: Interact
---- !u!114 &3710792490383910975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871195780218987062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fcad8dc94d31f26cb25226b923449b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Deed
-  playerFightData: {fileID: 11400000, guid: 6fbe304691b13b453bf3e37080514ddd, type: 2}
-  Data: {fileID: 0}
 --- !u!1 &3952857474185629118
 GameObject:
   m_ObjectHideFlags: 0

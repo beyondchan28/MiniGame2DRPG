@@ -14,7 +14,6 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private InputActionReference interactInput;
     [SerializeField] private float distance = 1f;
     [SerializeField] private LayerMask interactLayer;
-    [SerializeField] DialogueManager dialogueManager;
     [SerializeField] private PlayerMovement playerMovement;
 
     Vector2 raycastDirection = Vector2.right;
@@ -43,11 +42,10 @@ public class PlayerInteract : MonoBehaviour
     {
         if (interactInput.action.WasPressedThisFrame())
         {
-            dialogueManager.NextDialogue();
-            if (dialogueManager.IsDialgoueDone())
+            DialogueManager.Instance.NextDialogue();
+            if (DialogueManager.Instance.IsDialgoueDone())
             {
-                detectedInteraction.Data.AfterInteract();
-                detectedInteraction.DoAction();
+                detectedInteraction.AfterInteract();
                 ChangeState(State.WALK);
             }
         }
@@ -94,7 +92,7 @@ public class PlayerInteract : MonoBehaviour
                 break;
             case State.INTERACT:
                 playerMovement.Off();
-                dialogueManager.Begin(detectedInteraction.Data.GetChat());
+                DialogueManager.Instance.Begin(detectedInteraction.Data.GetChat());
                 break;
         }
     }

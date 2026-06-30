@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871195780218987062, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
       propertyPath: m_Name
-      value: NPC Variant
+      value: InteractableNPC
       objectReference: {fileID: 0}
     - target: {fileID: 1882562619027239613, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
       propertyPath: m_Sprite
@@ -91,5 +91,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1871195780218987062, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4765847745490946850}
   m_SourcePrefab: {fileID: 100100000, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
+--- !u!1 &5530694655984797259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1871195780218987062, guid: 64c9cb550b90da05e98fd23bde6b1546, type: 3}
+  m_PrefabInstance: {fileID: 6140424829864092797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4765847745490946850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530694655984797259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c0ec765a38854d9b6dba7d55f6cb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionNPC
+  Data: {fileID: 11400000, guid: adc98cad89f0148b9a6831febe7ccbdb, type: 2}

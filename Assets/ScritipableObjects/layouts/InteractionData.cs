@@ -12,16 +12,6 @@ public class InteractionData : ScriptableObject
         DEFENSE
     }
 
-    public enum Action
-    {
-        NONE,
-        FIGHT,
-        HAND_OUT
-    }
-
-    [Header("Happen after chat or directly if no chat")]
-    public Action action;
-
     [Header("Hand out parameters")]
     public PointType pointType;
     public float value;

@@ -11,9 +11,9 @@
   - [x] attack, defends, dodge visuals and mechanism
   - [x] status / resources components with Scriptable object as data container
   - [x] added the get value from chest to players stat
+  - [ ] cutscene system
   - [ ] mini game after choosing the fight action to amplified the point
   - [ ] full game loop
-  - [ ] cutscene system
 
 + Important
   - [ ] refactor scripts and folders before submit

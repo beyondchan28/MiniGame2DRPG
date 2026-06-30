@@ -101,6 +101,7 @@ public class DialogueManager : MonoBehaviour
         isDialogueDone = false;
         currentDialogueList = GetDialogueDataList(chat);
         SetDialogue();
+        CutsceneDirector.Instance.StartCutscene();
         dialogueBubble.Show();
     }
 
@@ -116,7 +117,7 @@ public class DialogueManager : MonoBehaviour
         string speakerText = char.ToUpper(speakerToString[0]) + speakerToString.Substring(1).ToLower();
         dialogueBubble.SetChatBubble(speakerText, chatText);
     }
-    public bool IsDialgoueDone()
+    public bool IsDialogueDone()
     {
         return isDialogueDone;
     }

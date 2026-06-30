@@ -43,7 +43,7 @@ public class PlayerInteract : MonoBehaviour
         if (interactInput.action.WasPressedThisFrame())
         {
             DialogueManager.Instance.NextDialogue();
-            if (DialogueManager.Instance.IsDialgoueDone())
+            if (DialogueManager.Instance.IsDialogueDone())
             {
                 detectedInteraction.AfterInteract();
                 ChangeState(State.WALK);
